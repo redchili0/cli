@@ -5,14 +5,14 @@ class Icon extends Command {
   static get signature() {
     return `
       icon
-      { path: path to the image resource  }
-      { -t, --taro: Taro-based component }
-      { -w, --web: Web-based component }
-    `;
+      { path: Path to the image resource  }
+      `;
+      // { -w, --web: Web-based component } //TODO: 支持 react component；选择创建
+      // { -t, --taro: Taro-based component }
   }
 
   static get description() {
-    return 'generate image component';
+    return 'generate and update icon component';
   }
 
   // eslint-disable-next-line class-methods-use-this
