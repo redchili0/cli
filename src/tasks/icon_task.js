@@ -100,10 +100,11 @@ async function iconTask(input) {
   tasks
     .run()
     .then(() => {
-      process.exit(1);
+      // process.exit(1);
     })
     .catch((err) => {
-      process.exit(1);
+
+      // process.exit(1);
     });
 }
 
