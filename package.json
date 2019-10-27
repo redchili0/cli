@@ -1,9 +1,9 @@
 {
   "name": "@redchili/cli",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "license": "MIT",
   "bin": {
-    "chili": "lib/cli.js"
+    "chili": "main/cli.js"
   },
   "engines": {
     "node": ">=8"
