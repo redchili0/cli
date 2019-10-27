@@ -9,7 +9,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@adonisjs/ace": "^6.3.2",
+    "@adonisjs/ace": "5.0.8",
     "execa": "^3.2.0",
     "listr": "^0.14.3",
     "require-context": "^1.1.0"

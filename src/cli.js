@@ -1,4 +1,3 @@
-'use strict';
 const ace = require('@adonisjs/ace');
 const fs = require('fs');
 const path = require('path');
