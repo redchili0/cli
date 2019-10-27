@@ -1,0 +1,1 @@
+enum Icons { close.jpeg = "icon_close.jpeg" open.png = "icon_open.png" }export default Icons;

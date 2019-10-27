@@ -1,32 +1,16 @@
-#!/usr/bin/env node
 
-import React from 'react';
-import meow from 'meow';
-import genIcon from './components/gen_icon';
+const ace = require('@adonisjs/ace');
+const fs = require('fs');
+const path = require('path');
 
-const cli = meow(`
-    Usage
-      $ cli
+const commandPath = path.resolve(__dirname, './command');
+const commands = fs.readdirSync(commandPath);
 
-    Command
-        icon generater icon component(now only support weapp)
+commands.forEach((c) => {
+  // eslint-disable-next-line
+  ace.addCommand(require(path.join(commandPath, c)));
+});
 
-        Options
-            --input(alias:i) icon image input file
-
-    Options
-        --name  Your name
-
-    Examples
-      $ cli --name=Jane
-      Hello, Jane
-`);
-
-if (cli.input.length > 0) {
-  const command = cli.input[0];
-  if (command === 'icon') {
-    // render(React.createElement(GenIcon, cli.flags));
-    // eslint-disable-next-line react/jsx-filename-extension
-    genIcon(cli.flags);
-  }
-}
+// Boot ace to execute commands
+ace.wireUpWithCommander();
+ace.invoke();

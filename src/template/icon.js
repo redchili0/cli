@@ -1,5 +1,5 @@
 
-export const wxappIconTmpl = `import Taro from "@tarojs/taro";
+const taroIconTmpl = `import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import Icons from "./type";
 import "./index.css";
@@ -31,6 +31,11 @@ export default function ProIcon(props: Sprite | Icon) {
     backgroundPosition: props.model === "sprite" ? \`$\{Taro.pxTransform(props.x)} $\{Taro.pxTransform(props.y)}\` : "0 0",
   };
   return <View style={style} className={\`icon--box $\{props.type} $\{props.className || ''}\`} />;
-}`
+}`;
 
-export const webIcon = ``;
+const webIconTmpl = '';
+
+module.exports = {
+  taroIconTmpl,
+  webIconTmpl,
+};

@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
-
 var _meow = _interopRequireDefault(require("meow"));
 
 var _gen_icon = _interopRequireDefault(require("./components/gen_icon"));
