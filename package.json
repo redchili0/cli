@@ -2,11 +2,14 @@
 	"name": "@redchili/cli",
 	"version": "0.0.0",
 	"license": "MIT",
-	"bin": "cli.js",
+	"bin": {
+		"chili": "build/cli.js"
+	},
 	"engines": {
 		"node": ">=8"
 	},
 	"scripts": {
+		"build": "babel src --out-dir=build",
 		"test": "xo && ava"
 	},
 	"files": [
@@ -14,18 +17,30 @@
 		"ui.js"
 	],
 	"dependencies": {
+		"execa": "^3.2.0",
 		"import-jsx": "^3.0.0",
 		"ink": "^2.5.0",
+		"ink-spinner": "^3.0.1",
+		"ink-text-input": "^3.2.1",
+		"listr": "^0.14.3",
 		"meow": "^5.0.0",
 		"prop-types": "^15.7.2",
 		"react": "^16.11.0"
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.6.4",
+		"@babel/core": "^7.6.4",
+		"@babel/plugin-proposal-class-properties": "^7.5.5",
+		"@babel/preset-env": "^7.6.3",
 		"@babel/preset-react": "^7.6.3",
 		"@babel/register": "^7.6.2",
 		"ava": "^2.4.0",
+		"babel-eslint": "^10.0.3",
 		"chalk": "^2.4.2",
+		"eslint": "^6.6.0",
+		"eslint-config-airbnb": "^18.0.1",
 		"eslint-config-xo-react": "^0.20.0",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-react": "^7.16.0",
 		"eslint-plugin-react-hooks": "^2.2.0",
 		"ink-testing-library": "^1.0.2",
@@ -38,7 +53,18 @@
 	},
 	"babel": {
 		"presets": [
-			"@babel/preset-react"
+			"@babel/preset-react",
+			[
+				"@babel/preset-env",
+				{
+					"targets": {
+						"node": true
+					}
+				}
+			]
+		],
+		"plugins": [
+			"@babel/plugin-proposal-class-properties"
 		]
 	},
 	"xo": {
