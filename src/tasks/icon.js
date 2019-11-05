@@ -36,7 +36,7 @@ async function filterImg(dirPath) {
 async function wait(second) {
   return new Promise((resolve) => setTimeout(resolve, second));
 }
-async function iconTask(input) {
+async function iconTask(input, context) {
   // NOTE: 检查 入口路径是否存在
   const dirPath = path.join(process.cwd(), input);
 
@@ -47,8 +47,8 @@ async function iconTask(input) {
     },
     {
       title: 'Create type and style files',
-      task: () =>
-        new Promise(async (resolve, reject) => {
+      task: async () =>
+         {
           // TODO: 转换文件名称(中文转拼音，_ 转camel-case)
           const resObj = {};
 
@@ -59,17 +59,18 @@ async function iconTask(input) {
           // const files = [];
           const files = await filterImg(dirPath);
           if (files.length === 0) {
-            reject(new Error('No suitable picture!'));
+            throw new Error('No suitable picture!');
           }
           files.forEach((filename) => {
             const fullname = path.join(dirPath, filename);
 
             resObj[filename] = fullname;
-            const name = filename.replace(/([@2x, @3x])(.*\/)*([^.]+).*/gi, '$2');
+            const name = filename.replace(/(\w+)([@2x, @3x]?)(.*\/?)*([^.]+).*/gi, '$1');
             const relativePath = fullname.replace(
-              /.*\/([^\/]+\/[^\/]+)$/,
+              /.*\/([^/]+\/[^/]+)$/,
               '$1'
             );
+            // TODO: 重名筛选
             // TODO: 超过 10 k 的图片显示提示
             // NOTE: 拼接 index.css 内容
             bgTmpl = `${bgTmpl} .icon_${name} {background-image: url("./${relativePath}")}`;
@@ -92,8 +93,7 @@ async function iconTask(input) {
             path.join(path.resolve(dirPath, '..'), 'index.tsx'),
             taroIconTmpl
           );
-          setTimeout(resolve, 200);
-        })
+        }
     }
   ]);
 
@@ -101,11 +101,9 @@ async function iconTask(input) {
     .run()
     .then(() => {
       // process.exit(1);
+    }).catch((err) => {
+      context.error(err.toString());
     })
-    .catch((err) => {
-
-      // process.exit(1);
-    });
 }
 
 module.exports = iconTask;

@@ -1,1 +1,1 @@
-enum Icons { }export default Icons;
+enum Icons { work = "icon_work", work = "icon_work", work_house = "icon_work_house", }export default Icons;

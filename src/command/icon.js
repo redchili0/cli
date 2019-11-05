@@ -17,7 +17,7 @@ class Icon extends Command {
 
   // eslint-disable-next-line class-methods-use-this
   async handle({ path }) {
-    iconTask(path);
+    iconTask(path, this);
   }
 }
 
