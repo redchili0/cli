@@ -1,5 +1,5 @@
 const { Command } = require('@adonisjs/ace');
-const iconTask = require('../tasks/icon_task');
+const iconTask = require('../tasks/icon');
 
 class Icon extends Command {
   static get signature() {
