@@ -19,14 +19,21 @@ chili
     ```bash
     chili icon ./src/package/icons/img
     ```
-
+- 从 github 复制特定代码到本地目录
+  - block 需要固定的目录规范，且保存在github 等可以访问的仓库，目录树如下：
+    ```bash
+    .
+    ├── node_modules
+    ├── package.json
+    ├── src
+    │   ├── ...
+    ```
 ## 优化清单
 - [ ] icon 代码模板将 enum 改为 type【⭑⭑⭑】
 - [ ] icon 支持 sprite , web 模板代码【⭑】
 
 ## 计划中功能
 - [ ] 支持配置文件，固定路径，根据图片大小进行筛选【⭑⭑】
-- [ ] 生成区块代码，类型 umi block，阿里飞冰的区块...【⭑】
 
 ## 参与
 
