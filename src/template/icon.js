@@ -22,7 +22,7 @@ interface Icon {
   className?: string;
 }
 
-export default function ProIcon(props: Sprite | Icon) {
+export default function IconPro(props: Sprite | Icon) {
   const w = Taro.pxTransform(props.w);
   const h = Taro.pxTransform(props.h);
   const style = {
