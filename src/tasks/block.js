@@ -37,11 +37,11 @@ async function create(name, url, tpath, context) {
     await wait(1500 - duration);
   }
   // STEP:download denpendcies
-  spinner.color = 'green';
-  spinner.text = 'Download dependencies';
-  const pkg = require(`${cachePath}/package.json`);
+  // spinner.color = 'green';
+  // spinner.text = 'Download dependencies';
+  // const pkg = require(`${cachePath}/package.json`);
 
-  await downloadDeps(pkg);
+  // await downloadDeps(pkg);
 
   spinner.succeed(`The block ${name} was successfully created!`);
 }
