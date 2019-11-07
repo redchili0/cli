@@ -2,8 +2,8 @@ const { Command } = require('@adonisjs/ace');
 const createBlockTask = require('../tasks/block');
 
 const blocks = {
-  'search-table': 'https://github.com/xiamu14/pkg-complex-table.git',
-  'edit-search-table': 'https://github.com/xiamu14/pkg-complex-table-hook.git'
+  'search-table': 'https://github.com/xiamu14/search-table.git',
+  'edit-search-table': 'https://github.com/xiamu14/edit-search-table.git'
 };
 
 class Block extends Command {
