@@ -3,7 +3,8 @@ const createBlockTask = require('../tasks/block');
 
 const blocks = {
   'search-table': 'https://github.com/xiamu14/search-table.git',
-  'edit-search-table': 'https://github.com/xiamu14/edit-search-table.git'
+  'edit-search-table': 'https://github.com/xiamu14/edit-search-table.git',
+  "edit-table": "https://github.com/xiamu14/edit_table.git"
 };
 
 class Block extends Command {
