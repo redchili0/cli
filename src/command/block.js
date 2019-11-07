@@ -4,7 +4,7 @@ const createBlockTask = require('../tasks/block');
 const blocks = {
   'search-table': 'https://github.com/xiamu14/search-table.git',
   'edit-search-table': 'https://github.com/xiamu14/edit-search-table.git',
-  "edit-table": "https://github.com/xiamu14/edit_table.git"
+  'edit-table': 'https://github.com/xiamu14/edit_table.git'
 };
 
 class Block extends Command {
@@ -21,10 +21,7 @@ class Block extends Command {
 
   // eslint-disable-next-line class-methods-use-this
   async handle({ path }) {
-    const name = await this.choice('Select block?', [
-      'search-table',
-      'edit-search-table'
-    ]);
+    const name = await this.choice('Select block?', Object.keys(blocks));
     await createBlockTask(name, blocks[name], path, this);
     process.exit();
   }
