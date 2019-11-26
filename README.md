@@ -35,7 +35,6 @@ chili
   - 更新 github repo, 使用 `chili block -u` 即可。
 
 ## 优化清单
-- [ ] icon 代码模板将 enum 改为 type【⭑⭑⭑】
 - [ ] icon 支持 sprite , web 模板代码【⭑】
 
 ## 计划中功能
