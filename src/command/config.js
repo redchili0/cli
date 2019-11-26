@@ -20,10 +20,12 @@ class Config extends Command {
       const configs = {
         blocksRepo: 'blocksRepo'
       };
-      const name = await this.choice(
-        'Select value to update?',
-        Object.keys(configs)
-      );
+
+      // const name = await this.choice(
+      //   'Select value to update?',
+      //   Object.keys(configs)
+      // );
+      const name = Object.keys(configs)[0];
       const input = await this.ask(`${name}`);
       await updateConfig(name, input);
       this.success(`${this.icon('success')} config upated`);

@@ -1,11 +1,10 @@
 const path = require('path');
 const fs = require('fs');
-
+const readline = require('readline');
+const kleur = require('kleur');
+const clear = require('./clear');
 const configPath = path.join(process.cwd(), 'src/config.json');
 
-
-// const readFile = util.promisify(fs.readFile);
-// const writeFile = util.promisify(fs.writeFile);
 async function updateConfig(key, val) {
   const configContent = fs.readFileSync(configPath, 'utf8');
 
@@ -29,11 +28,14 @@ function readConfig(key) {
     if (Object.prototype.hasOwnProperty.call(params, key)) {
       return params[key];
     } else {
-      console.log(`! ${key} doesn't exit.`);
+      clear();
+      console.log(`${kleur.red('✖ ' + `${key} doesn't exist.`)}`);
       process.exit();
     }
   } else {
-    console.log('! config.json is empty, please update first.');
+    readline.cursorTo(process.stdout, 0, 0);
+    readline.clearScreenDown(process.stdout);
+    console.log(`${kleur.red('✖ config.json is empty, please update first.')}`);
     process.exit();
   }
 }
