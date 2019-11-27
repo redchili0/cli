@@ -9,9 +9,9 @@ const { readConfig } = require('./config');
 
 const readDir = util.promisify(fs.readdir);
 
-const cachePath = path.join(process.cwd(), `.cache/blocks`);
+const cachePath = path.join(__dirname, `../../.cache/blocks`);
 
-const templatesPath = path.join(process.cwd(), `.cache/blocks/templates`);
+const templatesPath = path.join(__dirname, `../../.cache/blocks/templates`);
 
 async function readBlocks() {
   let isExists;

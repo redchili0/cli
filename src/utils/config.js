@@ -3,7 +3,7 @@ const fs = require('fs');
 const readline = require('readline');
 const kleur = require('kleur');
 const clear = require('./clear');
-const configPath = path.join(process.cwd(), 'src/config.json');
+const configPath = path.join(__dirname, '../config.json');
 
 async function updateConfig(key, val) {
   const configContent = fs.readFileSync(configPath, 'utf8');
